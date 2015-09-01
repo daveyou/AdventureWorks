@@ -32,9 +32,10 @@ SELECT b.[ProductAssemblyID], b.[ComponentID], b.[ComponentDesc], SUM(b.[PerAsse
 FROM [BOM_cte] b
 GROUP BY b.[ComponentID], b.[ComponentDesc], b.[ProductAssemblyID], b.[BOMLevel], b.[RecursionLevel], b.[StandardCost], b.[ListPrice]
 ORDER BY b.[BOMLevel], b.[ProductAssemblyID], b.[ComponentID]
-OPTION (MAXRECURSION 70) 
+OPTION (MAXRECURSION 50) 
 END;
 GO
+
 
 EXEC sp_addextendedproperty N'MS_Description', N'Stored procedure using a recursive query to return a multi-level bill of material for the specified ProductID.', 'SCHEMA', N'dbo', 'PROCEDURE', N'uspGetBillOfMaterials', NULL, NULL
 GO
