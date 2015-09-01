@@ -32,9 +32,10 @@ SELECT b.[ProductAssemblyID], b.[ComponentID], b.[ComponentDesc], SUM(b.[PerAsse
 FROM [BOM_cte] b
 GROUP BY b.[ComponentID], b.[ComponentDesc], b.[ProductAssemblyID], b.[BOMLevel], b.[RecursionLevel], b.[StandardCost], b.[ListPrice]
 ORDER BY b.[BOMLevel], b.[ProductAssemblyID], b.[ComponentID]
-OPTION (MAXRECURSION 45) 
+OPTION (MAXRECURSION 30) 
 END;
 GO
+
 
 
 
